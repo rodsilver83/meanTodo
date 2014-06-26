@@ -45,7 +45,7 @@ function mainController($scope, $http) {
   };
 
   $scope.editTodo = function(todo) {
-    $http.put('/api/todos/update/' + todo._id +'/' + todo.text)
+    $http.post('/api/todos/update/', todo)
         .success(function(data) {
           console.log(data);
         })

@@ -13,7 +13,7 @@ module.exports = function (app) {
 
   app.delete('/api/todos/:todo', todoController.delete);
 
-  app.put('/api/todos/update/:todo/:text', todoController.update);
+  app.post('/api/todos/update/', todoController.update);
 
   app.get('/', function (req, res) {						// Carga una vista HTML simple donde irá nuesta Single App Page
     res.sendFile('index.html');				// Angular Manejará el Frontend

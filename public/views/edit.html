@@ -8,6 +8,12 @@
       <div class="modal-body">
         <label>Text</label>
         <input type='text' ng-model="todo.text"/>
+        <div ng-repeat="color in todo.colors">
+          <label>Color</label>
+          <input type="text" ng-model="color.color"/>
+          <label>Imagen</label>
+          <input type="text" ng-model="color.image"/>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
