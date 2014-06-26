@@ -1,23 +1,30 @@
 <!-- Modal -->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+    </div>
+    <div class="modal-body">
+      <label>Text</label>
+      <input type='text' ng-model="todo.text"/>
+
+      <div ng-repeat="color in todo.colors">
+        <label>Color</label>
+        <input type="text" ng-model="color.color"/>
+        <!--
+        <label>Imagen</label>
+        <input type="text" ng-model="color.image"/>
+        -->
       </div>
-      <div class="modal-body">
-        <label>Text</label>
-        <input type='text' ng-model="todo.text"/>
-        <div ng-repeat="color in todo.colors">
-          <label>Color</label>
-          <input type="text" ng-model="color.color"/>
-          <label>Imagen</label>
-          <input type="text" ng-model="color.image"/>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" ng-click="editTodo(todo)">Save changes</button>
-      </div>
+
+      <input id="fileupload" type="file" name="image" data-url="/app/upload/" >
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" ng-click="addColor(todo)">Añadir Color</button>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      <button type="button" class="btn btn-primary" ng-click="editTodo(todo)">Guardar</button>
     </div>
   </div>
+</div>

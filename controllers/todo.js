@@ -51,9 +51,8 @@ exports.delete = function(req, res) {		// DELETE un TODO específico y devuelve 
 };
 
 exports.update = function(req, res) {		// DELETE un TODO específico y devuelve todos tras borrarlo.
-  console.log(req);
-  var query = { _id: req.params.todo._id };
-  Todo.update(query, { text: req.params.text, colors: req.params.colors }, function (err, todo) {
+  var query = { _id: req.body._id };
+  Todo.update(query, { text: req.body.text, colors: req.body.colors }, function (err, todo) {
     if(err){
       res.send(err);
     }

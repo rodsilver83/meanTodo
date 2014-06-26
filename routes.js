@@ -3,6 +3,7 @@
  */
 // Definicion de controladores
 var todoController = require('./controllers/todo');
+var uploadController = require('./controllers/upload');
 
 module.exports = function (app) {
 
@@ -18,4 +19,7 @@ module.exports = function (app) {
   app.get('/', function (req, res) {						// Carga una vista HTML simple donde irá nuesta Single App Page
     res.sendFile('index.html');				// Angular Manejará el Frontend
   });
+
+  app.post('/app/upload/', uploadController.upload);
+
 };

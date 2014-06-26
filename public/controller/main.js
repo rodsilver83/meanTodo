@@ -9,7 +9,6 @@ function mainController($scope, $http) {
 	$http.get('/api/todos')
 		.success(function(data) {
 			$scope.todos = data;
-			console.log(data)
 		})
 		.error(function(data) {
 			console.log('Error: ' + data);
@@ -20,8 +19,8 @@ function mainController($scope, $http) {
 		$http.post('/api/todos', $scope.formData)
 			.success(function(data) {
 				$scope.formData = {};
-				$scope.todos = data;
-				console.log(data);
+        $scope.formData.colors = [];
+        $scope.todos = data;
 			})
 			.error(function(data) {
 				console.log('Error:' + data);
@@ -33,7 +32,6 @@ function mainController($scope, $http) {
 		$http.delete('/api/todos/' + id)
 			.success(function(data) {
 				$scope.todos = data;
-				console.log(data);
 			})
 			.error(function(data) {
 				console.log('Error:' + data);
@@ -42,12 +40,21 @@ function mainController($scope, $http) {
 
   $scope.loadEditTodo = function(todo) {
       $scope.todo = todo;
+    $('#fileupload').fileupload({
+      dataType: 'json',
+      done: function (e, data) {
+        $.each(data.result.files, function (index, file) {
+          $('<p/>').text(file.name).appendTo(document.body);
+        });
+      }
+    });
   };
 
   $scope.editTodo = function(todo) {
+    console.log(todo);
     $http.post('/api/todos/update/', todo)
         .success(function(data) {
-          console.log(data);
+          //console.log(data);
         })
         .error(function(data) {
           console.log('Error:' + data);
@@ -56,8 +63,8 @@ function mainController($scope, $http) {
   };
 
   //Agregar Color
-  $scope.addColor = function(){
-    $scope.formData.colors.push({ color: null, image: null});
-    console.log($scope.formData);
+  $scope.addColor = function(todo){
+    todo.colors.push({ color: null, image: null});
   };
+
 }
