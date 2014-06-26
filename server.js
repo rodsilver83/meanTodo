@@ -5,7 +5,7 @@ var app 		= express();
 var mongoose 	= require('mongoose');
 
 // Conexión con la base de datos
-mongoose.connect('mongodb://localhost:27017/angular-todo');
+mongoose.connect('mongodb://localhost:27017/angular-todos');
 
 // Definición de modelos
 require('./model/todo');

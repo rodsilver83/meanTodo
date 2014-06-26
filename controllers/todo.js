@@ -2,12 +2,7 @@
  * Created by Rod on 6/24/14.
  */
 var mongoose 	= require('mongoose');
-Todo = mongoose.model('todo');
-
-// Definición de modelos
-var Todo = mongoose.model('Todo', {
-  text: String
-});
+var Todo = mongoose.model('todo');
 
 exports.list = function(req, res) {				// GET de todos los TODOs
   Todo.find(function(err, todos) {
@@ -19,8 +14,10 @@ exports.list = function(req, res) {				// GET de todos los TODOs
 };
 
 exports.create = function(req, res) {				// POST que crea un TODO y devuelve todos tras la creación
+  console.log(req.body);
   Todo.create({
     text: req.body.text,
+    colors: req.body.colors,
     done: false
   }, function(err, todo){
     if(err) {

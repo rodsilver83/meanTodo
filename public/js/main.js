@@ -3,6 +3,7 @@ var angularTodo = angular.module('angularTodo', []);
 
 function mainController($scope, $http) {
 	$scope.formData = {};
+  $scope.formData.colors = [];
 
 	// Cuando se cargue la página, pide del API todos los TODOs
 	$http.get('/api/todos')
@@ -51,5 +52,12 @@ function mainController($scope, $http) {
         .error(function(data) {
           console.log('Error:' + data);
         });
+    $('#myModal').modal('hide')
+  };
+
+  //Agregar Color
+  $scope.addColor = function(){
+    $scope.formData.colors.push({ color: null, image: null});
+    console.log($scope.formData);
   };
 }
