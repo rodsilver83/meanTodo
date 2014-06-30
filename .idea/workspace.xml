@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ef1c008-13d4-40fb-a627-d77ab7d45d49" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/edit.html" afterPath="$PROJECT_DIR$/public/views/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/controller/main.js" afterPath="$PROJECT_DIR$/public/controller/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="APIRestNode.iws" />
@@ -278,7 +276,11 @@
       <created>1404164777286</created>
       <updated>1404164777286</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="upload file beta">
+      <created>1404169631655</created>
+      <updated>1404169631655</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -325,7 +327,8 @@
     <MESSAGE value="init 2" />
     <MESSAGE value="array form input" />
     <MESSAGE value="upload file" />
-    <option name="LAST_COMMIT_MESSAGE" value="upload file" />
+    <MESSAGE value="upload file beta" />
+    <option name="LAST_COMMIT_MESSAGE" value="upload file beta" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
