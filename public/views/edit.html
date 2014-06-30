@@ -12,14 +12,10 @@
       <div ng-repeat="color in todo.colors">
         <label>Color</label>
         <input type="text" ng-model="color.color"/>
-        <!--
         <label>Imagen</label>
         <input type="text" ng-model="color.image"/>
-        -->
+        <input id="fileupload" class="fileupload" type="file" name="image" data-url="/app/upload/" >
       </div>
-
-      <input id="fileupload" type="file" name="image" data-url="/app/upload/" >
-
     </div>
     <div class="modal-footer">
       <button class="btn btn-primary" ng-click="addColor(todo)">Añadir Color</button>

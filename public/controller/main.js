@@ -39,20 +39,13 @@ function mainController($scope, $http) {
 	};
 
   $scope.loadEditTodo = function(todo) {
-      $scope.todo = todo;
-    $('#fileupload').fileupload({
-      dataType: 'json',
-      done: function (e, data) {
-        $.each(data.result.files, function (index, file) {
-          $('<p/>').text(file.name).appendTo(document.body);
-        });
-      }
-    });
+    $scope.todo = todo;
+
+    addFileEvent();
   };
 
   $scope.editTodo = function(todo) {
-    console.log(todo);
-    $http.post('/api/todos/update/', todo)
+    $http.put('/api/todos/update/', todo)
         .success(function(data) {
           //console.log(data);
         })
@@ -65,6 +58,29 @@ function mainController($scope, $http) {
   //Agregar Color
   $scope.addColor = function(todo){
     todo.colors.push({ color: null, image: null});
+
+    addFileEvent();
+    /*
+    $('.fileupload').fileupload({
+      dataType: 'json',
+      done: function (e, data) {
+        console.log("UPLOAD");
+      }
+    });
+    */
   };
 
+}
+
+function addFileEvent(){
+  $("#myModal").off("change",".fileupload");
+  $("#myModal").on("change",".fileupload", function () {
+    console.log("change");
+  });
+  $('.fileupload').fileupload({
+    dataType: 'json',
+    done: function (e, data) {
+      console.log("UPLOAD");
+    }
+  });
 }

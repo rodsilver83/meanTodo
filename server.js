@@ -15,8 +15,9 @@ app.configure(function() {
 	app.use(express.static(__dirname + '/public'));		// Localización de los ficheros estáticos
   app.use(express.static(__dirname + '/public/views'));		// Localización de los ficheros estáticos
   app.use(express.static(__dirname + '/bootstrap'));		// Localización de los ficheros estáticos
+  app.use(express.static(__dirname + '/uploads/'));		// Localización de los ficheros estáticos
 	app.use(express.logger('dev'));						// Muestra un log de todos los request en la consola
-	app.use(express.bodyParser());						// Permite cambiar el HTML con el método POST
+	app.use(express.bodyParser({ keepExtensions: true}));						// Permite cambiar el HTML con el método POST
 	app.use(express.methodOverride());					// Simula DELETE y PUT
 });
 
