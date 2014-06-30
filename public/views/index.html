@@ -25,7 +25,9 @@
           {{ todo.text }}
         </label>
         <label ng-repeat="color in todo.colors">
-          {{ color.color }} {{ color.image }}
+          {{ color.color }}
+          <img width="100px" src="{{ color.image }}">
+
         </label>
         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"
                 ng-click="loadEditTodo(todo)">

@@ -13,10 +13,10 @@
         <label>Color</label>
         <input type="text" ng-model="color.color"/>
         <label>Imagen</label>
-        <input type="text" ng-model="color.image" id="image_{{color._id}}" />
+        <input type="hidden" ng-model="color.image" id="image_{{color._id}}" />
         <img src="{{color.image}}" width="100px" id="img_{{color._id}}">
 
-        <input class="fileupload" data-id="{{color._id}}" type="file" name="image" data-url="/app/upload/" ng-model="color.image" ng-change="changeFile()" >
+        <input class="fileupload" data-id="{{color._id}}" data-index="{{$index}}" type="file" name="image" data-url="/app/upload/" >
       </div>
 
     </div>

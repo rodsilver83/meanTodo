@@ -12,7 +12,7 @@ exports.upload = function (req,res) {
   var ext = path.extname(req.files.image.originalFilename);
 
   fs.readFile(req.files.image.path, function (err, data) {
-    var newPath = appDir + "/uploads/" + hash + ".jpg";
+    var newPath = appDir + "/uploads/" + hash + ext;
     fs.writeFile(newPath, data, function (err) {
       if(err) {
         res.send(err);
