@@ -13,9 +13,12 @@
         <label>Color</label>
         <input type="text" ng-model="color.color"/>
         <label>Imagen</label>
-        <input type="text" ng-model="color.image"/>
-        <input id="fileupload" class="fileupload" type="file" name="image" data-url="/app/upload/" >
+        <input type="text" ng-model="color.image" id="image_{{color._id}}" />
+        <img src="{{color.image}}" width="100px" id="img_{{color._id}}">
+
+        <input class="fileupload" data-id="{{color._id}}" type="file" name="image" data-url="/app/upload/" ng-model="color.image" ng-change="changeFile()" >
       </div>
+
     </div>
     <div class="modal-footer">
       <button class="btn btn-primary" ng-click="addColor(todo)">Añadir Color</button>

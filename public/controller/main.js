@@ -41,7 +41,7 @@ function mainController($scope, $http) {
   $scope.loadEditTodo = function(todo) {
     $scope.todo = todo;
 
-    addFileEvent();
+    addFileEvent($scope);
   };
 
   $scope.editTodo = function(todo) {
@@ -60,27 +60,25 @@ function mainController($scope, $http) {
     todo.colors.push({ color: null, image: null});
 
     addFileEvent();
-    /*
-    $('.fileupload').fileupload({
-      dataType: 'json',
-      done: function (e, data) {
-        console.log("UPLOAD");
-      }
-    });
-    */
   };
 
+  function addFileEvent(){
+    $("#myModal").off("click",".fileupload");
+    $("#myModal").on("click",".fileupload", function () {
+      $('.fileupload').fileupload({
+        dataType: 'json',
+        done: function (e, data) {
+          $("#img_"+$(this).data('id')).attr('src',data.result);
+          $("#image_"+$(this).data('id')).val(data.result);
+          //$("#image_"+$(this).data('id')).change();
+        }
+      });
+    });
+  }
+
+  $scope.changeFile = function(){
+    console.log("CHANGEFILE");
+  }
 }
 
-function addFileEvent(){
-  $("#myModal").off("change",".fileupload");
-  $("#myModal").on("change",".fileupload", function () {
-    console.log("change");
-  });
-  $('.fileupload').fileupload({
-    dataType: 'json',
-    done: function (e, data) {
-      console.log("UPLOAD");
-    }
-  });
-}
+
