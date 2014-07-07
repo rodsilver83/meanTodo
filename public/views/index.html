@@ -9,11 +9,11 @@
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 </head>
-<body ng-controller="mainController">
+<body ng-controller="mainController as flores">
 <div class="container">
   <!--Cabecera-->
   <div class="jumbotron text-center">
-    <h1>Angular TODO List <span class="label label-info">{{ todos.length }}</span></h1>
+    <h1>Flores Aiwee <span class="label label-info">{{ todos.length }}</span></h1>
   </div>
 
   <!--Lista de Todos-->
@@ -21,16 +21,17 @@
     <div class="col-sm-4 col-sm-offset-4">
       <div class="checkbox" ng-repeat="todo in todos">
         <label>
-          <input type="checkbox" ng-click="deleteTodo(todo._id)">
-          {{ todo.text }}
+          <input type="checkbox" ng-click="flores.deleteTodo(todo._id)">
+          {{ todo.text }} -
+          {{ todo.price }}
         </label>
         <label ng-repeat="color in todo.colors">
           {{ color.color }}
-          <img width="100px" src="{{ color.image }}">
+          <img height="100px" ng-src="{{color.image}}">
 
         </label>
         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"
-                ng-click="loadEditTodo(todo)">
+                ng-click="flores.loadEditTodo(todo)">
           Edit
         </button>
       </div>
@@ -42,19 +43,22 @@
   <!--Formulario para insertar nuevos Todo-->
   <div id="todo-form" class="row">
     <div class="col-sm-8 col-sm-offset-2 text-center">
-      <form>
+      <form ng-submit="flores.createTodo()" novalidateting>
         <div class="form-group">
           <input type="text" class="form-control input-lg text-center"
-                 placeholder="Inserta una tarea nueva"
-                 ng-model="formData.text">
+                 placeholder="Nombre de la flor"
+                 ng-model="flores.formData.text">
+          <input type="text" class="form-control input-lg text-center"
+                 placeholder="precio"
+                 ng-model="flores.formData.price" ng-filter="currency">
         </div>
-        <button class="btn btn-primary btn-lg" ng-click="createTodo()">Añadir</button>
+        <button class="btn btn-primary btn-lg" >Añadir</button>
       </form>
     </div>
   </div>
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<script src="/js/lib/angular.min.js"></script>
 <script src="/controller/main.js"></script>
 
 <script src="js/lib/jquery.ui.widget.js"></script>
